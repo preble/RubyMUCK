@@ -1,0 +1,100 @@
+
+[2007-11-12: REVISION 40]
+
+[NEW] Single player can now have multiple connections open in order to combat zombie connections.
+[FIXED] Case where player could be marked as disconnected without notifying the room.
+[FIXED] Security on tport.
+[FIXED] Permission on quell flag.
+
+[2007-11-12: REVISION 39]
+
+[FIXED] Mirrored DB was ignoring DATABASE_FORMAT.
+[FIXED] Added more checks to Thing#create_from_proptree.
+
+[2007-11-12: REVISION 38]
+
+[NEW] modules/transport.rb, with summon/join and tport commands.
+[NEW] @reload command.
+[CHANGED] reloader task disabled.
+[CHANGED] Player#where= protects against moving players to non-rooms.
+[FIXED] @set syntax checking.
+ 
+[2007-11-12: REVISION 37]
+
+[NEW] :dump database format is broken on Win32; Marshal bug?  Recommend YAML instead for now.  0D0A sequences in file should be 0A.
+[FIXED] cmd_who artifacts left over.
+
+[2007-11-12: REVISION 36]
+
+[FIXED] gohome now performs a look.
+[NEW] Commands: summon, whisper.
+[NEW] page and whisper will remember last-paged and -whispered.
+[FIXED] Failed action without fail message.
+[CHANGED] examine without arguments assumes 'here'.
+
+[2007-11-12: REVISION 35]
+
+[FIXED] who command.
+
+[2007-11-12: REVISION 34]
+
+[NEW] Commands: ws, status, @boot.
+[NEW] ex and @set now behave more like their TinyMU* counterparts as far as properties.
+[NEW] Player#idle_string
+[FIXED] Blank input lines are ignored (again).
+[NEW] @boot command
+[NEW] Page-pose.
+
+[2007-11-11: REVISION 32]
+
+[FIXED] Pose tweak.
+[FIXED] can_set_flag?
+[FIXED] Bug in filter().
+[NEW] @load
+[FIXED] Properties can now be deleted.
+[CHANGED] Hanging indentation for say and pose.
+[FIXED] DB test for systems without /tmp.
+[CHANGED] More use of MonitorMixin rather than Mutex objects.
+[NEW] Player#interview method.
+ 
+[2007-11-09: REVISION 26]
+
+[NEW] Added Mirrored Database and DATABASE_MIRRORED.
+
+[2007-11-09: REVISION 25]
+
+[NEW] Database saving task, DATABASE_SAVE_PERIOD configuration variable.
+[NEW] TaskManager and task commands.  @tasks/@ps and @kill commands.
+[NEW] 'allow(block)' statement for determining availability/visibility of commands.  Incorporated into 'help'.
+
+[2007-11-08: REVISION 23]
+
+[CHANGED] Old :dump and :yaml database formats have been renamed to :olddump and :oldyaml.  :safe* variations are now the main ones.
+[FIXED] Omitted lib/database.rb now added.
+[NEW] Database unit tests.
+
+[2007-11-07: REVISION 22]
+
+[NEW] :safedump database format -- uses no RubyMUCK-specific classes, only standard lib Ruby classes (Hash, Array, String).
+[NEW] GUEST_ROOM constant for future guest login feature.
+
+[2007-11-07: REVISION 21]
+
+[CHANGED] Major reorganization of source code.  Added RubyMUCK module.
+[CHANGED] RMObject is now named Thing.  RMSession is now Connection.  Other RM* objects have had the prefix removed.
+[NEW] Database object instead of class variables in RMObject.
+[NEW] :dump and :yaml database formats.
+[NEW] @password command.
+
+[2007-10-31: REVISION 18]
+
+[NEW] @drop/fail/succ messages are now filtered through the interpreter.
+[NEW] @drop/fail/succ messages are now filtered for % escape sequences for pronouns.
+[NEW] Interpreter tests.
+[FIXED] Actions had been broken.
+
+[2007-10-30: REVISION 17]
+
+[NEW] Interpreted language added, with @eval command to execute/test.
+[NEW] Dark flag.
+[CHANGED] Implemented several commands in new command DSL style.
