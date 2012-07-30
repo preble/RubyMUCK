@@ -1,7 +1,7 @@
 require "test/unit"
 
-require "lib/database"
-require "lib/object"
+require_relative "../lib/database"
+require_relative "../lib/object"
 
 include RubyMUCK
 

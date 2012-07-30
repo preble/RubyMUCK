@@ -4,10 +4,10 @@
 #    http://creativecommons.org/licenses/by-nc-sa/3.0/
 require 'yaml'
 require 'benchmark'
-require 'md5'
+require 'digest/md5'
 require 'monitor'
 require 'singleton'
-require 'config' # Since this should be required from ..
+require_relative '../config'
 
 module RubyMUCK
   # Encapsulates the RubyMUCK database.

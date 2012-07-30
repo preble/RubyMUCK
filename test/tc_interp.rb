@@ -1,8 +1,8 @@
 require "test/unit"
 
-require 'lib/object'
-require 'lib/interpreted'
-require 'modules/interpfcns'
+require_relative '../lib/object'
+require_relative '../lib/interpreted'
+require_relative '../modules/interpfcns'
 
 include RubyMUCK
 

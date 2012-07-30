@@ -1,3 +1,6 @@
+[2012-07-29: REVISION 41]
+
+[CHANGED] Updated to run under Ruby 1.9.3.
 
 [2007-11-12: REVISION 40]
 

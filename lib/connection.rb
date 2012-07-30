@@ -4,9 +4,9 @@
 #    http://creativecommons.org/licenses/by-nc-sa/3.0/
 #
 require 'monitor'
-require 'lib/object'
-require 'lib/taskmgr'
-require 'lib/interpreted'
+require_relative 'object'
+require_relative 'taskmgr'
+require_relative 'interpreted'
 
 module RubyMUCK
   class Connection

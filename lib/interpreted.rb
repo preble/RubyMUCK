@@ -5,7 +5,7 @@
 #
 require 'monitor'
 require 'thread'
-require 'lib/rdparser'
+require_relative 'rdparser'
 
 module RubyMUCK
   # Uses the RDParser to implement the 'RubyMUCK Interpreted Language'.

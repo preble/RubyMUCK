@@ -4,9 +4,9 @@
 #    http://creativecommons.org/licenses/by-nc-sa/3.0/
 require 'yaml'
 require 'benchmark'
-require 'md5'
-require 'config' # Since this should be required from ..
-require 'lib/database'
+require 'digest/md5'
+require_relative '../config'
+require_relative 'database'
 
 module RubyMUCK
 
@@ -67,9 +67,10 @@ module RubyMUCK
 
   
     # Returns an array of member variables to be saved when converting to YAML.
-    def to_yaml_properties
+    def encode_with coder
       # Normal implementation: instance_variables.sort
-      ["@id", "@proptree"]
+      coder['id'] = @id
+      coder['proptree'] = @proptree
     end
   
     # Implements dumping for Marshal.dump; returns a string.
@@ -379,18 +380,18 @@ module RubyMUCK
   
     # True if the supplied password is valid for this player.
     def check_password(pw)
-      self['%/password'] == (MD5.new(pw + @@salt).to_s)
+      self['%/password'] == (Digest::MD5.hexdigest(pw + @@salt).to_s)
     end
   
     # Assigns the password for this Player.  Returns True if successful (if the old password matches).
     def password(new_pw, old_pw)
       return false unless check_password(old_pw)
-      self['%/password'] = (MD5.new(new_pw + @@salt).to_s)
+      self['%/password'] = (Digest::MD5.hexdigest(new_pw + @@salt).to_s)
       true
     end
   
     def password=(new_pw)
-      self['%/password'] = (MD5.new(new_pw + @@salt).to_s)
+      self['%/password'] = (Digest::MD5.hexdigest(new_pw + @@salt).to_s)
     end
   
     # Assigns the IO object for this player's #tell messages.  A value of nil should be passed if the player has disconnected.

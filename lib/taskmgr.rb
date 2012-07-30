@@ -1,7 +1,7 @@
 require 'singleton'
 require 'monitor'
-require 'config' # Since this should be required from ..
-require 'lib/database'
+require_relative '../config'
+require_relative 'database'
 
 module RubyMUCK
   

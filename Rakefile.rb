@@ -3,9 +3,9 @@
 #  Provided under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 License.
 #    http://creativecommons.org/licenses/by-nc-sa/3.0/
 require 'rake/testtask'
-require 'lib/object'
-require 'lib/server'
-require 'config'
+require_relative 'lib/object'
+require_relative 'lib/server'
+require_relative 'config'
 
 include RubyMUCK
 

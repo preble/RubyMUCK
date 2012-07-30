@@ -7,12 +7,12 @@
 #
 #  All administrator configuration options are in config.rb.
 #
-require 'config' # Since this should be required from ..
+require_relative '../config'
 require 'gserver'
-require 'lib/database'
-require 'lib/connection'
-require 'lib/object' # Thing, etc.
-require 'lib/console'
+require_relative 'database'
+require_relative 'connection'
+require_relative 'object' # Thing, etc.
+require_relative 'console'
 
 module RubyMUCK
   RM_VERSION = '0.1a'

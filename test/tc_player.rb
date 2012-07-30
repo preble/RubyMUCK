@@ -1,6 +1,6 @@
 require "test/unit"
 
-require "lib/object"
+require_relative "../lib/object"
 
 include RubyMUCK
 
